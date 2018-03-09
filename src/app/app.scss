@@ -14,3 +14,17 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@import "../../node_modules/ionic2-auto-complete/auto-complete";
+
+@font-face {
+    font-family: DINNextLTPro;
+    src: url('../assets/fonts/DINNextLTPro-MediumCond.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: DINNextLTPro !important;
+    letter-spacing: 1px;
+}
