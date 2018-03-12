@@ -2,4 +2,12 @@ page-compose-question {
     ion-list + ion-list {
         margin-top: 0;
     }
+    
+    .help-button {
+        background: transparent;
+    }
+    
+    .list-header {
+        font-size: 1.2em;
+    }
 }

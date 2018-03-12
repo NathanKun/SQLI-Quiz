@@ -1,8 +1,8 @@
-<ion-header>
+<!-- <ion-header>
     <ion-navbar>
         <ion-title>Quiz - Login</ion-title>
     </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content  class="bg-image vertical-align-content" text-center padding>
     
@@ -17,7 +17,7 @@
                 <form [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
                     <ion-auto-complete [dataProvider]="userService" formControlName="name" [options]="{ placeholder : 'Entrer votre nom' }"></ion-auto-complete>
                     <div style="text-align: center; margin-left: 30px; margin-right: 30px;">
-                        <button ion-button block color="primary" type="submit" block>Login</button>
+                        <button ion-button block color="primary" type="submit" class="login-button">Login</button>
                     </div>
                 </form>
             </ion-col>

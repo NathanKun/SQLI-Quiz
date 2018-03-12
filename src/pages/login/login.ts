@@ -31,7 +31,7 @@ export class LoginPage {
         if (name == null || name.length == 0) {
             let alert = this.alertCtrl.create({
                 title: 'hum...',
-                subTitle: 'Veuillez devez choisir votre nom dans la liste',
+                subTitle: 'Vouos devez choisir votre nom dans la liste',
                 buttons: ['OK']
             });
             alert.present();

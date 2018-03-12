@@ -12,18 +12,23 @@ import { AutoCompleteModule } from 'ionic2-auto-complete';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { ComposeQuestionPage } from '../pages/compose-question/compose-question';
+import { HelpPage } from '../pages/help/help';
+import { QuestionsPage } from '../pages/questions/questions'
 import { UserService } from './user.service';
+import { ApiService } from './api.service';
+import { QuestionService } from './question.service';
 
 @NgModule({
     declarations: [
         MyApp,
         LoginPage,
-        ComposeQuestionPage
+        ComposeQuestionPage,
+        HelpPage,
+        QuestionsPage
     ],
     imports: [
         BrowserModule, 
         HttpModule,
-        //NgAutoCompleteModule,
         AutoCompleteModule ,
         BrowserAnimationsModule,
         IonicModule.forRoot(MyApp)
@@ -32,13 +37,17 @@ import { UserService } from './user.service';
     entryComponents: [
         MyApp,
         LoginPage,
-        ComposeQuestionPage
+        ComposeQuestionPage,
+        HelpPage,
+        QuestionsPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
-        UserService
+        UserService, 
+        ApiService,
+        QuestionService
     ]
 })
 export class AppModule {}
