@@ -1238,5 +1238,161 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => "Ashly"
 		]);
+
+
+
+
+
+
+
+
+
+
+        DB::table('questions')->insert(['id' => 1, 'type' => "technique", 'text' => "techniquebla bbblla blllla"]);
+        DB::table('answers')->insert(['answer' => "aaa", 'isCorrect' => false, 'question_id' => 1]);
+        DB::table('answers')->insert(['answer' => "bb", 'isCorrect' => false, 'question_id' => 1]);
+        DB::table('answers')->insert(['answer' => "cccc", 'isCorrect' => false, 'question_id' => 1]);
+        DB::table('answers')->insert(['answer' => "techniqueddddd", 'isCorrect' => true, 'question_id' => 1]);
+
+        DB::table('questions')->insert(['id' => 2, 'type' => "technique", 'text' => "techniquedaaa dadadaddda dada"]);
+        DB::table('answers')->insert(['answer' => "daa", 'isCorrect' => false, 'question_id' => 2]);
+        DB::table('answers')->insert(['answer' => "dbb", 'isCorrect' => false, 'question_id' => 2]);
+        DB::table('answers')->insert(['answer' => "techniquedcccc", 'isCorrect' => true, 'question_id' => 2]);
+        DB::table('answers')->insert(['answer' => "ddddddddd", 'isCorrect' => false, 'question_id' => 2]);
+
+        DB::table('questions')->insert(['id' => 3, 'type' => "technique", 'text' => "techniquefoo foofoo foofoofoo"]);
+        DB::table('answers')->insert(['answer' => "fooa", 'isCorrect' => false, 'question_id' => 3]);
+        DB::table('answers')->insert(['answer' => "foob", 'isCorrect' => false, 'question_id' => 3]);
+        DB::table('answers')->insert(['answer' => "techniquefooc", 'isCorrect' => true, 'question_id' => 3]);
+        DB::table('answers')->insert(['answer' => "food", 'isCorrect' => false, 'question_id' => 3]);
+
+        DB::table('questions')->insert(['id' => 4, 'type' => "technique", 'text' => "techniquebar barbar barbarbar"]);
+        DB::table('answers')->insert(['answer' => "techniquebara", 'isCorrect' => true, 'question_id' => 4]);
+        DB::table('answers')->insert(['answer' => "barb", 'isCorrect' => false, 'question_id' => 4]);
+        DB::table('answers')->insert(['answer' => "barc", 'isCorrect' => false, 'question_id' => 4]);
+        DB::table('answers')->insert(['answer' => "bard", 'isCorrect' => false, 'question_id' => 4]);
+
+        DB::table('questions')->insert(['id' => 5, 'type' => "technique", 'text' => "techniquebaz bazbaz bazbazbaz"]);
+        DB::table('answers')->insert(['answer' => "techniquebaz", 'isCorrect' => true, 'question_id' => 5]);
+        DB::table('answers')->insert(['answer' => "bazbaz", 'isCorrect' => false, 'question_id' => 5]);
+        DB::table('answers')->insert(['answer' => "bazbazbaz", 'isCorrect' => false, 'question_id' => 5]);
+        DB::table('answers')->insert(['answer' => "bazbazbazbaz", 'isCorrect' => false, 'question_id' => 5]);
+
+        DB::table('questions')->insert(['id' => 6, 'type' => "technique", 'text' => "techniqueomg omgomg omgomgomg omgomg omg"]);
+        DB::table('answers')->insert(['answer' => "techniqueomg", 'isCorrect' => true, 'question_id' => 6]);
+        DB::table('answers')->insert(['answer' => "omgomg", 'isCorrect' => false, 'question_id' => 6]);
+        DB::table('answers')->insert(['answer' => "omgomgomg", 'isCorrect' => false, 'question_id' => 6]);
+        DB::table('answers')->insert(['answer' => "omgomgomgomg", 'isCorrect' => false, 'question_id' => 6]);
+
+
+        DB::table('questions')->insert(['id' => 7, 'type' => "pilotage", 'text' => "pilotagebla bbblla blllla"]);
+        DB::table('answers')->insert(['answer' => "pilotageaaa", 'isCorrect' => false, 'question_id' => 7]);
+        DB::table('answers')->insert(['answer' => "pilotagebb", 'isCorrect' => false, 'question_id' => 7]);
+        DB::table('answers')->insert(['answer' => "pilotagecccc", 'isCorrect' => false, 'question_id' => 7]);
+        DB::table('answers')->insert(['answer' => "pilotageddddd", 'isCorrect' => true, 'question_id' => 7]);
+
+        DB::table('questions')->insert(['id' => 8, 'type' => "pilotage", 'text' => "pilotagedaaa dadadaddda dada"]);
+        DB::table('answers')->insert(['answer' => "pilotagedaa", 'isCorrect' => false, 'question_id' => 8]);
+        DB::table('answers')->insert(['answer' => "pilotagedbb", 'isCorrect' => false, 'question_id' => 8]);
+        DB::table('answers')->insert(['answer' => "pilotagedcccc", 'isCorrect' => true, 'question_id' => 8]);
+        DB::table('answers')->insert(['answer' => "pilotageddddddddd", 'isCorrect' => false, 'question_id' => 8]);
+
+        DB::table('questions')->insert(['id' => 9, 'type' => "pilotage", 'text' => "pilotagefoo foofoo foofoofoo"]);
+        DB::table('answers')->insert(['answer' => "pilotagefooa", 'isCorrect' => false, 'question_id' => 9]);
+        DB::table('answers')->insert(['answer' => "pilotagefoob", 'isCorrect' => false, 'question_id' => 9]);
+        DB::table('answers')->insert(['answer' => "pilotagefooc", 'isCorrect' => true, 'question_id' => 9]);
+        DB::table('answers')->insert(['answer' => "pilotagefood", 'isCorrect' => false, 'question_id' => 9]);
+
+        DB::table('questions')->insert(['id' => 10, 'type' => "pilotage", 'text' => "pilotagebar barbar barbarbar"]);
+        DB::table('answers')->insert(['answer' => "pilotagebara", 'isCorrect' => true, 'question_id' => 10]);
+        DB::table('answers')->insert(['answer' => "pilotagebarb", 'isCorrect' => false, 'question_id' => 10]);
+        DB::table('answers')->insert(['answer' => "pilotagebarc", 'isCorrect' => false, 'question_id' => 10]);
+        DB::table('answers')->insert(['answer' => "pilotagebard", 'isCorrect' => false, 'question_id' => 10]);
+
+        DB::table('questions')->insert(['id' => 11, 'type' => "pilotage", 'text' => "pilotagebaz bazbaz bazbazbaz"]);
+        DB::table('answers')->insert(['answer' => "bazpilotage", 'isCorrect' => true, 'question_id' => 11]);
+        DB::table('answers')->insert(['answer' => "bazbazpilotage", 'isCorrect' => false, 'question_id' => 11]);
+        DB::table('answers')->insert(['answer' => "bazbazbazpilotage", 'isCorrect' => false, 'question_id' => 11]);
+        DB::table('answers')->insert(['answer' => "bazbazbazbazpilotage", 'isCorrect' => false, 'question_id' => 11]);
+
+        DB::table('questions')->insert(['id' => 12, 'type' => "pilotage", 'text' => "pilotageomg omgomg omgomgomg omgomg omg"]);
+        DB::table('answers')->insert(['answer' => "omgpilotage", 'isCorrect' => true, 'question_id' => 12]);
+        DB::table('answers')->insert(['answer' => "omgomgpilotage", 'isCorrect' => false, 'question_id' => 12]);
+        DB::table('answers')->insert(['answer' => "omgomgomgpilotage", 'isCorrect' => false, 'question_id' => 12]);
+        DB::table('answers')->insert(['answer' => "omgomgomgomgpilotage", 'isCorrect' => false, 'question_id' => 12]);
+
+
+        DB::table('questions')->insert(['id' => 13, 'type' => "fonctionnel", 'text' => "fonctionnelbla bbblla blllla"]);
+        DB::table('answers')->insert(['answer' => "fonctionnelaaa", 'isCorrect' => false, 'question_id' => 13]);
+        DB::table('answers')->insert(['answer' => "fonctionnelbb", 'isCorrect' => false, 'question_id' => 13]);
+        DB::table('answers')->insert(['answer' => "fonctionnelcccc", 'isCorrect' => false, 'question_id' => 13]);
+        DB::table('answers')->insert(['answer' => "fonctionnelddddd", 'isCorrect' => true, 'question_id' => 13]);
+
+        DB::table('questions')->insert(['id' => 14, 'type' => "fonctionnel", 'text' => "fonctionneldaaa dadadaddda dada"]);
+        DB::table('answers')->insert(['answer' => "fonctionneldaa", 'isCorrect' => false, 'question_id' => 14]);
+        DB::table('answers')->insert(['answer' => "fonctionneldbb", 'isCorrect' => false, 'question_id' => 14]);
+        DB::table('answers')->insert(['answer' => "fonctionneldcccc", 'isCorrect' => true, 'question_id' => 14]);
+        DB::table('answers')->insert(['answer' => "fonctionnelddddddddd", 'isCorrect' => false, 'question_id' => 14]);
+
+        DB::table('questions')->insert(['id' => 15, 'type' => "fonctionnel", 'text' => "fonctionnelfoo foofoo foofoofoo"]);
+        DB::table('answers')->insert(['answer' => "fonctionnelfooa", 'isCorrect' => false, 'question_id' => 15]);
+        DB::table('answers')->insert(['answer' => "fonctionnelfoob", 'isCorrect' => false, 'question_id' => 15]);
+        DB::table('answers')->insert(['answer' => "fonctionnelfooc", 'isCorrect' => true, 'question_id' => 15]);
+        DB::table('answers')->insert(['answer' => "fonctionnelfood", 'isCorrect' => false, 'question_id' => 15]);
+
+        DB::table('questions')->insert(['id' => 16, 'type' => "fonctionnel", 'text' => "fonctionnelbar barbar barbarbar"]);
+        DB::table('answers')->insert(['answer' => "barafonctionnel", 'isCorrect' => true, 'question_id' => 16]);
+        DB::table('answers')->insert(['answer' => "barbfonctionnel", 'isCorrect' => false, 'question_id' => 16]);
+        DB::table('answers')->insert(['answer' => "barcfonctionnel", 'isCorrect' => false, 'question_id' => 16]);
+        DB::table('answers')->insert(['answer' => "bardfonctionnel", 'isCorrect' => false, 'question_id' => 16]);
+
+        DB::table('questions')->insert(['id' => 17, 'type' => "fonctionnel", 'text' => "fonctionnelaz bazbaz bazbazbaz"]);
+        DB::table('answers')->insert(['answer' => "fonctionnelbaz", 'isCorrect' => true, 'question_id' => 17]);
+        DB::table('answers')->insert(['answer' => "fonctionnelbazbaz", 'isCorrect' => false, 'question_id' => 17]);
+        DB::table('answers')->insert(['answer' => "fonctionnelbazbazbaz", 'isCorrect' => false, 'question_id' => 17]);
+        DB::table('answers')->insert(['answer' => "fonctionnelbazbazbazbaz", 'isCorrect' => false, 'question_id' => 17]);
+
+        DB::table('questions')->insert(['id' => 18, 'type' => "fonctionnel", 'text' => "fonctionnelomg omgomg omgomgomg omgomg omg"]);
+        DB::table('answers')->insert(['answer' => "fonctionnelomg", 'isCorrect' => true, 'question_id' => 18]);
+        DB::table('answers')->insert(['answer' => "fonctionnelomgomg", 'isCorrect' => false, 'question_id' => 18]);
+        DB::table('answers')->insert(['answer' => "fonctionnelomgomgomg", 'isCorrect' => false, 'question_id' => 18]);
+        DB::table('answers')->insert(['answer' => "fonctionnelomgomgomgomg", 'isCorrect' => false, 'question_id' => 18]);
+
+
+        DB::table('questions')->insert(['id' => 19, 'type' => "extra", 'text' => "extrabla bbblla blllla"]);
+        DB::table('answers')->insert(['answer' => "aaaextra", 'isCorrect' => false, 'question_id' => 19]);
+        DB::table('answers')->insert(['answer' => "bbextra", 'isCorrect' => false, 'question_id' => 19]);
+        DB::table('answers')->insert(['answer' => "ccccextra", 'isCorrect' => false, 'question_id' => 19]);
+        DB::table('answers')->insert(['answer' => "dddddextra", 'isCorrect' => true, 'question_id' => 19]);
+
+        DB::table('questions')->insert(['id' => 20, 'type' => "extra", 'text' => "extradaaa dadadaddda dada"]);
+        DB::table('answers')->insert(['answer' => "daaextra", 'isCorrect' => false, 'question_id' => 20]);
+        DB::table('answers')->insert(['answer' => "dbbextra", 'isCorrect' => false, 'question_id' => 20]);
+        DB::table('answers')->insert(['answer' => "dccccextra", 'isCorrect' => true, 'question_id' => 20]);
+        DB::table('answers')->insert(['answer' => "dddddddddextra", 'isCorrect' => false, 'question_id' => 20]);
+
+        DB::table('questions')->insert(['id' => 21, 'type' => "extra", 'text' => "extrafoo foofoo foofoofoo"]);
+        DB::table('answers')->insert(['answer' => "fooaextra", 'isCorrect' => false, 'question_id' => 21]);
+        DB::table('answers')->insert(['answer' => "foobextra", 'isCorrect' => false, 'question_id' => 21]);
+        DB::table('answers')->insert(['answer' => "foocextra", 'isCorrect' => true, 'question_id' => 21]);
+        DB::table('answers')->insert(['answer' => "foodextra", 'isCorrect' => false, 'question_id' => 21]);
+
+        DB::table('questions')->insert(['id' => 22, 'type' => "extra", 'text' => "extrabar barbar barbarbar"]);
+        DB::table('answers')->insert(['answer' => "extrabara", 'isCorrect' => true, 'question_id' => 22]);
+        DB::table('answers')->insert(['answer' => "extrabarb", 'isCorrect' => false, 'question_id' => 22]);
+        DB::table('answers')->insert(['answer' => "extrabarc", 'isCorrect' => false, 'question_id' => 22]);
+        DB::table('answers')->insert(['answer' => "extrabard", 'isCorrect' => false, 'question_id' => 22]);
+
+        DB::table('questions')->insert(['id' => 23, 'type' => "extra", 'text' => "extrabaz bazbaz bazbazbaz"]);
+        DB::table('answers')->insert(['answer' => "extrabaz", 'isCorrect' => true, 'question_id' => 23]);
+        DB::table('answers')->insert(['answer' => "extrabazbaz", 'isCorrect' => false, 'question_id' => 23]);
+        DB::table('answers')->insert(['answer' => "extrabazbazbaz", 'isCorrect' => false, 'question_id' => 23]);
+        DB::table('answers')->insert(['answer' => "extrabazbazbazbaz", 'isCorrect' => false, 'question_id' => 23]);
+
+        DB::table('questions')->insert(['id' => 24, 'type' => "extra", 'text' => "extraomg omgomg omgomgomg omgomg omg"]);
+        DB::table('answers')->insert(['answer' => "extraomg", 'isCorrect' => true, 'question_id' => 24]);
+        DB::table('answers')->insert(['answer' => "extraomgomg", 'isCorrect' => false, 'question_id' => 24]);
+        DB::table('answers')->insert(['answer' => "extraomgomgomg", 'isCorrect' => false, 'question_id' => 24]);
+        DB::table('answers')->insert(['answer' => "extraomgomgomgomg", 'isCorrect' => false, 'question_id' => 24]);
     }
 }

@@ -15,6 +15,7 @@ export class UserService implements AutoCompleteService {
     labelAttribute = "";
     
     currentUser : string = null;
+    currentUserId : number = null;
     composition : IComposition;
     questions : IQuestion[];
 
@@ -23,11 +24,10 @@ export class UserService implements AutoCompleteService {
     }
     
     getResults(keyword : string) : Observable<any> {
-        return this.http.get(this.api.user)
+        return this.http.get(this.api.filterUser, {params: {str : keyword}})
             .map(
                 result => {
-                    return result.json()
-                    .filter( item => item.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 )
+                    return result.json();
                 }
         );
     }
@@ -36,7 +36,7 @@ export class UserService implements AutoCompleteService {
         return this.http.get(this.api.checkState)
             .map(
                 result => {
-                    return result.json()
+                    return result.json();
                 }
             );
     }

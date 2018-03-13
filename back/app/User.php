@@ -17,4 +17,14 @@ class User extends Authenticatable
     protected $fillable = [
         'name'
     ];
+
+    public function questions()
+    {
+        return $this->belongsToMany('App\Question');
+    }
+
+    public function responses()
+    {
+        return $this->hasMany('App\Response');
+    }
 }

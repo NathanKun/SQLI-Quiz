@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/question/checkiscomposedquestions', 'QuestionController@checkIsComposedQuestions');
+Route::post('/question/composequestions', 'QuestionController@composeQuestions');
+Route::post('/question/getquestionsofuser', 'QuestionController@getQuestionsOfUser');
+
+Route::post('/response/postResponse', 'ResponseController@postResponse');
+
+Route::post('/user/userlogin', 'UserController@userLogin');
+Route::get('/user/filterusername', 'UserController@filterUserName');

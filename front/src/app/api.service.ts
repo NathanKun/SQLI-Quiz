@@ -7,13 +7,13 @@ export class ApiService {
     
     private baseUrl : string;
     
-    user : string;
+    filterUser : string;
     checkState : string;
     
     constructor() {
-        this.baseUrl = this.local ? "http://localhost:80/" : "TODO";
+        this.baseUrl = this.local ? "http://localhost:8000/" : "https://sqliapi.catprogrammer.com/";
         
-        this.user = this.local ? "./assets/json/users.json" : "";
+        this.filterUser = this.baseUrl + "user/filterusername";
         this.checkState = this.baseUrl + (this.local ? " " : " ");
     }
 }
