@@ -84,7 +84,7 @@ class QuestionController extends Controller
 	 */
     private function attachQuestionsToUser(string $type, int $userId, int $questionCount) {
     	$rands = array();
-    	$questions = Question::where('type', $type);
+    	$questions = $type == "extra" ? Question::all() : Question::where('type', $type)->get();
     	$questionsTotal = $questions->count();
 
     	for ($i = 0; $i < $questionCount; $i++) {
@@ -94,7 +94,7 @@ class QuestionController extends Controller
     		} while(in_array($rand, $rands));
     		array_push($rands, $rand);
 
-    		$q = $questions->get()->get($rand);
+    		$q = $questions->get($rand);
     		$q->users()->attach($userId);
     	}
     }
