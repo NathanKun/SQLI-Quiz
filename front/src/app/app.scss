@@ -33,3 +33,11 @@ ion-icon {
     font-family: "Ionicons" !important;
 }
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% {  transform: rotate(359deg); }
+}
+
+#loader {
+    animation: spin 1s linear infinite;
+}

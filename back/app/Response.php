@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Response extends Model
 {
+    protected $hidden = array('id', 'created_at', 'updated_at');
+
     protected $fillable = [
         'time'
     ];

@@ -7,13 +7,36 @@ export class ApiService {
     
     private baseUrl : string;
     
+    checkIsComposedQuestions : string;
+    composeQuestions : string;
+    getQuestionsOfUser : string;
+    
+    postResponse : string; 
+    
     filterUser : string;
-    checkState : string;
+    getUserState : string;
+    userLogin : string;
     
     constructor() {
+        this.updateUrls();
+    }
+    
+    setLocal(isLocal : boolean) {
+        this.local = isLocal;
+        this.updateUrls();
+    }
+    
+    private updateUrls() {
         this.baseUrl = this.local ? "http://localhost:8000/" : "https://sqliapi.catprogrammer.com/";
         
+        this.checkIsComposedQuestions = this.baseUrl + "question/checkiscomposedquestions";
+        this.composeQuestions = this.baseUrl + "question/composequestions";
+        this.getQuestionsOfUser = this.baseUrl + "question/getquestionsofuser";
+        
+        this.postResponse = this.baseUrl + "response/postResponse";
+        
         this.filterUser = this.baseUrl + "user/filterusername";
-        this.checkState = this.baseUrl + (this.local ? " " : " ");
+        this.getUserState = this.baseUrl + "user/getuserstate";
+        this.userLogin = this.baseUrl + "user/userlogin";
     }
 }

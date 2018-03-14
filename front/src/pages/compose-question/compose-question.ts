@@ -1,8 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 
 import { HelpPage } from '../help/help'
 import { QuestionsPage } from '../questions/questions'
+
+import { LoaderService } from '../../app/loader.service';
+import { QuestionService } from '../../app/question.service';
+import { UserService } from '../../app/user.service';
+
+import { IQuestion } from '../../app/interfaces/question.interface'
 
 /**
  * Generated class for the ComposeQuestionPage page.
@@ -11,11 +17,14 @@ import { QuestionsPage } from '../questions/questions'
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
     selector: 'page-compose-question',
     templateUrl: 'compose-question.html',
 })
 export class ComposeQuestionPage {
+    
+    loading;
 
     startBtnEnabled:boolean=false;
     
@@ -25,13 +34,9 @@ export class ComposeQuestionPage {
     extra : number = 0;
     total : number = 3;
     
-    constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
-
-    }
-
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad ComposeQuestionPage');
-    }
+    constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController,
+                 private loadingCtrl : LoadingController, private loaderService : LoaderService, 
+                 private questionService : QuestionService, private userService : UserService) { }
     
     rangeOnChange() {
         this.total = this.technique + this.fonctionnel + this.pilotage;
@@ -68,17 +73,81 @@ export class ComposeQuestionPage {
                     text: 'Non',
                     role: 'cancel',
                     handler: () => {
-                        console.log('Non clicked');
+                        
                     }
                 },
                 {
                     text: 'Oui',
                     handler: () => {
-                        console.log('Oui clicked');
-                        this.navCtrl.push(QuestionsPage);
+                        this.loading = this.loaderService.getLoader(this.loadingCtrl);
+                        this.loading.present();
+                        
+                        this.questionService.composeQuestions({
+                            userId : this.userService.currentUserId,
+                            technique : this.technique,
+                            pilotage : this.pilotage,
+                            fonctionnel : this.fonctionnel,
+                            extra : this.extra
+                        }).subscribe((res) => {
+                            console.log(res);
+                            if(res.valid) {
+                                console.log("composeQuestions ok");
+                                
+                                // check user state
+                                this.userService.getUserState(this.userService.currentUserId).subscribe((res2) => {
+                                    console.log(res2);
+                                    
+                                    if(res2.valid) {
+                                        console.log("getUserState ok")
+                                        
+                                        const state : string = res2.data.state;
+                                        switch(state) {
+                                            case "responsing":
+                                                console.log("user responsing");
+                                                this.userService.questions = res2.data.questions.map(q => q as IQuestion);
+                                                console.log(this.userService.questions);
+                                                this.navCtrl.push(QuestionsPage);
+                                                break;
+                                                
+                                            case "composing":
+                                                console.log("user composing, state incorrect");
+                                                this.showAlert("state incorrect");
+                                                break;
+                                                
+                                            case "responsed":
+                                                console.log("user responsed, state incorrect");
+                                                this.showAlert("state incorrect");
+                                                break;
+                                                
+                                            default:
+                                                console.log("user is beyond the earth");
+                                                this.showAlert("state incorrect");
+                                                break;
+                                        }
+                                    } else {
+                                        console.log("getUserState failed")
+                                        this.showAlert(res2);
+                                    }
+                                });
+                            } else {
+                                console.log("composeQuestions failed");
+                                this.showAlert(res);
+                            }
+                        });
+                        this.loading.dismiss();
+                        
                     }
                 }
             ]
+        });
+        alert.present();
+    }
+    
+    private showAlert(msg) {
+        let alert = this.alertCtrl.create({
+            title: 'Something wrong...',
+            subTitle: typeof msg === "string" ? msg : (msg.hasOwnProperty('error') ? msg.error : JSON.stringify(msg)),
+            buttons: ['OK']
         });
         alert.present();
     }

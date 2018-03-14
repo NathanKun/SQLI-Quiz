@@ -1,5 +1,5 @@
 export interface IResponse {
     userId : number;
-    anwserId : number;
+    answerId : number;
     time : number;
 }

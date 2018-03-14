@@ -19,7 +19,7 @@ class QuestionController extends Controller
 
     	if(!$this->checkIsComposedQuestionsInternal($user)) {
     		return response()->json([
-			    'status' => 'error',
+		    	'valid' => false,
 			    'error' => 'questions not composed'
 			]);
     	}
@@ -33,12 +33,12 @@ class QuestionController extends Controller
 
     	if($this->checkIsComposedQuestionsInternal($user)) {
     		return response()->json([
-			    'status' => 'ok',
+		    	'valid' => true,
 			    'isComposed' => true
 			]);
     	} else {
     		return response()->json([
-			    'status' => 'ok',
+		    	'valid' => true,
 			    'isComposed' => false
 			]);
     	}
@@ -50,7 +50,7 @@ class QuestionController extends Controller
 
     	if($this->checkIsComposedQuestionsInternal($user)) {
     		return response()->json([
-			    'status' => 'error',
+		    	'valid' => false,
 			    'error' => 'already composed questions'
 			]);
     	}
@@ -62,7 +62,7 @@ class QuestionController extends Controller
 
     	if($techniqueCount == null || $pilotageCount == null || $fonctionnelCount == null || $extraCount == null) {
     		return response()->json([
-			    'status' => 'error',
+		    	'valid' => false,
 			    'error' => 'questionCounts missing'
 			]);
     	}
@@ -75,7 +75,7 @@ class QuestionController extends Controller
     	$this->attachQuestionsToUser('extra', $userId, $extraCount);
 
     	return response()->json([
-		    'status' => 'ok'
+		    'valid' => true
 		]);
     }
 

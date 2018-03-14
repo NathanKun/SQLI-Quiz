@@ -5,18 +5,20 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
-
-//import { NgAutoCompleteModule } from "ng-auto-complete";
 import { AutoCompleteModule } from 'ionic2-auto-complete';
 
 import { MyApp } from './app.component';
+
 import { LoginPage } from '../pages/login/login';
 import { ComposeQuestionPage } from '../pages/compose-question/compose-question';
 import { HelpPage } from '../pages/help/help';
 import { QuestionsPage } from '../pages/questions/questions'
+import { ResultPage } from '../pages/result/result'
+
 import { UserService } from './user.service';
 import { ApiService } from './api.service';
 import { QuestionService } from './question.service';
+import { LoaderService } from './loader.service';
 
 @NgModule({
     declarations: [
@@ -24,7 +26,8 @@ import { QuestionService } from './question.service';
         LoginPage,
         ComposeQuestionPage,
         HelpPage,
-        QuestionsPage
+        QuestionsPage,
+        ResultPage
     ],
     imports: [
         BrowserModule, 
@@ -39,7 +42,8 @@ import { QuestionService } from './question.service';
         LoginPage,
         ComposeQuestionPage,
         HelpPage,
-        QuestionsPage
+        QuestionsPage,
+        ResultPage
     ],
     providers: [
         StatusBar,
@@ -47,7 +51,8 @@ import { QuestionService } from './question.service';
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         UserService, 
         ApiService,
-        QuestionService
+        QuestionService,
+        LoaderService
     ]
 })
 export class AppModule {}
