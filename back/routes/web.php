@@ -23,3 +23,4 @@ Route::post('/response/postResponse', 'ResponseController@postResponse');
 
 Route::post('/user/userlogin', 'UserController@userLogin');
 Route::get('/user/filterusername', 'UserController@filterUserName');
+Route::post('/user/getuserstate', 'UserController@getUserState');

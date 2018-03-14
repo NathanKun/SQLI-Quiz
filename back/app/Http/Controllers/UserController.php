@@ -29,54 +29,90 @@ class UserController extends Controller
     	return $res;
     }
 
-    private function getUserState(Request $request) {
-        $user = $this->checkIsUserExisted($request);
+    public function getUserState(Request $request) {
+        $user = $this->findUser($request);
         if($user instanceof JsonResponse) return $user;
 
         // not composed yet
         if(!$this->checkIsComposedQuestionsInternal($user)) {
             return response()->json([
                 'valid' => true,
-                'data' => {
+                'data' => array(
                     'user' => $user,
                     'state' => "composing"
-                }
+                )
             ]);
         }
 
-        $questions = $user->questions();
-        $responses = $user->responses();
+        $questions = $user->questions()->get();
+        $responses = $user->responses()->get();
+
+        $questionArray = $questions->toArray();
+        $responseArray = $responses->toArray();
 
         // composed, responsing question
         if($questions->count() != $responses->count()) {
             return response()->json([
                 'valid' => true,
-                'data' => {
+                'data' => array(
                     'user' => $user,
                     'state' => "responsing",
-                    'questions' => $question->toArray(),
-                    'responses' => $responses->toArray()
-                }
+                    'questions' => $questionArray,
+                    'responses' => $responseArray
+                )
             ]);
         }
 
         // responsed, show result
         return response()->json([
             'valid' => true,
-            'data' => {
+            'data' => array(
                 'user' => $user,
                 'state' => "responsed",
-                'questions' => $question->toArray(),
-                'responses' => $responses->toArray(),
-                'result' => ""
-            }
+                'questions' => $questionArray,
+                'responses' => $responseArray,
+                'result' => $this->calculateResult($questions, $responses)
+            )
         ]);
     }
 
-    private function getResult(User $user) {
-        $questions = $user->questions();
-        $responses = $user->responses();
-        
+    private function calculateResult($questions, $responses) {
+        $answersIdChosen = array();
+        $totalTime = 0;
+        $totalPoints = 0;
+
+        foreach ($responses as $r) {
+            $totalTime += $r->time;
+            array_push($answersIdChosen, $r->answer()->first()->id);
+        }
+
+        foreach ($questions as $q) {
+            $answersOfQuestion = $q->answers()->get();
+            foreach ($answersOfQuestion as $a) {
+                if ($a->isCorrect) {
+                    if(in_array($a->id, $answersIdChosen)) {
+                        if($q->type == 'extra') {
+                            $totalPoints += 2;
+                            error_log("question extra " . $q->id . " correct");
+                        } else {
+                            $totalPoints += 1;
+                            error_log("question " . $q->id . " correct");
+                        }
+                    }
+                } else {
+                    if(in_array($a->id, $answersIdChosen)) {
+                        if($q->type == 'extra') {
+                            $totalPoints -= 1;
+                            error_log("question extra " . $q->id . " wrong");
+                        } else {
+                            error_log("question " . $q->id . " wrong");
+                        }
+                    }
+                }
+            }
+        }
+
+        return array("time" => $totalTime, "points" => $totalPoints);
     }
 
     private function checkIsUserExisted(Request $request) {
@@ -94,5 +130,25 @@ class UserController extends Controller
 
     private function checkIsComposedQuestionsInternal(User $user) {
         return $user->questions()->count() == 0 ? false : true;
+    }
+
+    private function findUser(Request $request) {
+        $userId = $request->userId;
+        if($userId == null) {
+            return response()->json([
+                'valid' => false,
+                'error' => 'userId param missing'
+            ]);
+        }
+
+        $user = User::find($userId);
+        if($user == null) {
+            return response()->json([
+                'valid' => false,
+                'error' => 'user id not exists'
+            ]);
+        }
+
+        return $user;
     }
 }
