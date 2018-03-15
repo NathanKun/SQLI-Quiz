@@ -1,5 +1,5 @@
 import { ViewChild, Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, Content } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, Content } from 'ionic-angular';
 
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 
@@ -19,7 +19,6 @@ import { IResponse } from '../../app/interfaces/response.interface'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
     selector: 'page-questions',
     templateUrl: 'questions.html',

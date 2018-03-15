@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { FormGroup, Validators, FormControl } from '@angular/forms'
 
 import { UserService } from '../../app/user.service';
@@ -12,7 +12,6 @@ import { ResultPage } from '../result/result'
 import { IQuestion } from '../../app/interfaces/question.interface'
 import { IResponse } from '../../app/interfaces/response.interface'
 
-@IonicPage()
 @Component({
     selector: 'page-login',
     templateUrl: 'login.html'

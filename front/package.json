@@ -1,8 +1,8 @@
 {
   "name": "quiz",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Junyang HE",
+  "homepage": "https://sqli.catprogrammer.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -37,5 +37,5 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic-Angular project, for a SQLI event."
 }

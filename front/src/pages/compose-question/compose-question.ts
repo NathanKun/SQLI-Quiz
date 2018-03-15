@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 
 import { HelpPage } from '../help/help'
 import { QuestionsPage } from '../questions/questions'
@@ -18,7 +18,6 @@ import { IResponse } from '../../app/interfaces/response.interface'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
     selector: 'page-compose-question',
     templateUrl: 'compose-question.html',
