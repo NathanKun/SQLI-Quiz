@@ -35,7 +35,7 @@ class ResponseController extends Controller
 			]);
     	}
 
-    	if(!ctype_digit($time) || $time <= 0) {
+    	if(!is_numeric($time) || $time <= 0) {
     		return response()->json([
 			    'valid' => false,
 			    'error' => 'time should be a positif number'

@@ -60,7 +60,7 @@ class QuestionController extends Controller
     	$fonctionnelCount = $request->fonctionnel;
     	$extraCount = $request->extra;
 
-    	if($techniqueCount == null || $pilotageCount == null || $fonctionnelCount == null || $extraCount == null) {
+    	if($techniqueCount === null || $pilotageCount === null || $fonctionnelCount === null || $extraCount === null) {
     		return response()->json([
 		    	'valid' => false,
 			    'error' => 'questionCounts missing'

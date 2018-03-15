@@ -17,6 +17,7 @@ export class UserService implements AutoCompleteService {
     currentUserId : number = null;
     questions : IQuestion[];
     responses : IResponse[];
+    result : any;
 
     constructor(private http : Http, private api : ApiService) {
 

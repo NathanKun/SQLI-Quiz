@@ -70,21 +70,23 @@ export class LoginPage {
                                     break;
                                     
                                 case "responsing":
-                                    console.log("user responsing");
-                                    this.userService.questions = res2.data.questions.map(q => q as IQuestion);
-                                    console.log(this.userService.questions);
-                                    
-                                    this.navCtrl.push(QuestionsPage);
-                                    break;
-                                    
                                 case "responsed":
                                     this.userService.questions = res2.data.questions.map(q => q as IQuestion);
-                                    this.userService.responses = res2.data.responses.map(r => r as IResponse);
+                                    this.userService.responses = res2.data.responses.map(r => {
+                                        return {userId: r.user_id, answerId : r.answer_id, time : r.time} as IResponse
+                                    });
+                                    this.userService.result = res2.data.result;
                                     console.log(this.userService.questions);
                                     console.log(this.userService.responses);
+                                    console.log(this.userService.result);
                                     
-                                    this.navCtrl.push(ResultPage);
-                                    console.log("user responsed");
+                                    if(state == "responsing") {
+                                        console.log("user responsing");
+                                        this.navCtrl.push(QuestionsPage);
+                                    } else {
+                                        this.navCtrl.push(ResultPage);
+                                        console.log("user responsed");
+                                    }
                                     break;
                                     
                                 default:

@@ -9,6 +9,7 @@ import { QuestionService } from '../../app/question.service';
 import { UserService } from '../../app/user.service';
 
 import { IQuestion } from '../../app/interfaces/question.interface'
+import { IResponse } from '../../app/interfaces/response.interface'
 
 /**
  * Generated class for the ComposeQuestionPage page.
@@ -105,7 +106,11 @@ export class ComposeQuestionPage {
                                             case "responsing":
                                                 console.log("user responsing");
                                                 this.userService.questions = res2.data.questions.map(q => q as IQuestion);
+                                                this.userService.responses = res2.data.responses.map(r => {
+                                                    return {userId: r.user_id, answerId : r.answerId, time : r.time} as IResponse
+                                                });
                                                 console.log(this.userService.questions);
+                                                console.log(this.userService.responses);
                                                 this.navCtrl.push(QuestionsPage);
                                                 break;
                                                 

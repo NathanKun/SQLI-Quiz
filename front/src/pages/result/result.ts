@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+
+import { UserService } from '../../app/user.service';
+import { LoaderService } from '../../app/loader.service';
+
+import { IQuestion } from '../../app/interfaces/question.interface'
+import { IResponse } from '../../app/interfaces/response.interface'
 
 /**
  * Generated class for the ResultPage page.
@@ -14,12 +20,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'result.html',
 })
 export class ResultPage {
+    
+    loading : any;
+    result : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, 
+               private alertCtrl : AlertController, private loadingCtrl : LoadingController, 
+               private loaderService : LoaderService, private userService : UserService) {
+        this.result = this.userService.result;
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ResultPage');
-  }
+    ionViewDidLoad() {
+    }
 
+    
+    private showAlert(msg) : void {
+        let alert = this.alertCtrl.create({
+            title: 'Something wrong...',
+            subTitle: typeof msg === "string" ? msg : (msg.hasOwnProperty('error') ? msg.error : JSON.stringify(msg)),
+            buttons: ['OK']
+        });
+        alert.present();
+    }
 }
