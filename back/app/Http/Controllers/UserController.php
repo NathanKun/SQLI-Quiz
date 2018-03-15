@@ -93,19 +93,16 @@ class UserController extends Controller
                     if(in_array($a->id, $answersIdChosen)) {
                         if($q->type == 'extra') {
                             $totalPoints += 2;
-                            error_log("question extra " . $q->id . " correct");
                         } else {
                             $totalPoints += 1;
-                            error_log("question " . $q->id . " correct");
                         }
                     }
                 } else {
                     if(in_array($a->id, $answersIdChosen)) {
                         if($q->type == 'extra') {
                             $totalPoints -= 1;
-                            error_log("question extra " . $q->id . " wrong");
                         } else {
-                            error_log("question " . $q->id . " wrong");
+                            // nothing
                         }
                     }
                 }

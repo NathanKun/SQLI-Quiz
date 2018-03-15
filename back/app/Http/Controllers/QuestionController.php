@@ -89,9 +89,17 @@ class QuestionController extends Controller
 
     	for ($i = 0; $i < $questionCount; $i++) {
     		$rand = 0;
-    		do {
-    			$rand = rand(0, $questionsTotal - 1);
-    		} while(in_array($rand, $rands));
+    		if($type != "extra") {
+    			do {
+	    			$rand = rand(0, $questionsTotal - 1);
+	    		} while(in_array($rand, $rands));
+    		} else { 
+    			do {
+	    			$rand = rand(0, $questionsTotal - 1);
+    				$uids = $questions->get($rand)->users()->pluck('user_id')->toArray();
+	    		} while(in_array($rand, $rands) || in_array($userId, $uids));
+    		}
+    		
     		array_push($rands, $rand);
 
     		$q = $questions->get($rand);
