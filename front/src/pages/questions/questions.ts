@@ -1,7 +1,7 @@
 import { ViewChild, Component } from '@angular/core';
 import { NavController, NavParams, AlertController, LoadingController, Content } from 'ionic-angular';
 
-import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
+import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 
 import { UserService } from '../../app/user.service';
 import { QuestionService } from '../../app/question.service';
@@ -93,6 +93,7 @@ export class QuestionsPage {
         this.questionService.postResponse(this.cards[this.counter - 1].response)
             .subscribe((res) => {
                 console.log(res);
+                this.loading.dismiss();
                 if(!res.valid) {
                     console.log("postResponse failed");
                     this.showAlert(res);
@@ -100,7 +101,6 @@ export class QuestionsPage {
                     console.log("postResponse ok");
                     this.nextQuestion();
                 }
-                this.loading.dismiss();
             }
         );
         

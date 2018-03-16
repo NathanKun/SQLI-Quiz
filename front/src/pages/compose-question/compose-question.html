@@ -17,17 +17,20 @@
             Questions obigatoires
         </ion-list-header>
         <ion-item>
-            <ion-range min="0" max="3" step="1" pin="true" [color]="total == 7 ? 'secondary' : 'danger'" [(ngModel)]="technique" (ionChange)="rangeOnChange()">
+            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 7 ? 'secondary' : 'danger'" 
+                       [(ngModel)]="technique" (ionChange)="rangeOnChange()">
                 <ion-label range-left>Technique&ensp;</ion-label>
             </ion-range>
         </ion-item>
         <ion-item>
-            <ion-range min="0" max="3" step="1" pin="true" [color]="total == 7 ? 'secondary' : 'danger'" [(ngModel)]="pilotage" (ionChange)="rangeOnChange()">
+            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 7 ? 'secondary' : 'danger'" 
+                       [(ngModel)]="pilotage" (ionChange)="rangeOnChange()">
                 <ion-label range-left>Pilotage&ensp;&ensp;</ion-label>
             </ion-range>
         </ion-item>
         <ion-item>
-            <ion-range min="0" max="3" step="1" pin="true" [color]="total == 7 ? 'secondary' : 'danger'" [(ngModel)]="fonctionnel" (ionChange)="rangeOnChange()">
+            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 7 ? 'secondary' : 'danger'" 
+                       [(ngModel)]="fonctionnel" (ionChange)="rangeOnChange()">
                 <ion-label range-left>Fonctionnel</ion-label>
             </ion-range>
         </ion-item>
@@ -42,7 +45,7 @@
             Questions supplémentaires
         </ion-list-header>
         <ion-item>
-            <ion-range min="0" max="3" step="1" pin="true" color="danger" [(ngModel)]="extra">
+            <ion-range min="0" max="3" step="1" pin="true" snaps="true" color="danger" [(ngModel)]="extra">
                 <ion-label range-left>0</ion-label>
                 <ion-label range-right>3</ion-label>
             </ion-range>

@@ -9,6 +9,10 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function getRanks(Request $request) {
+        return response()->json(User::whereNotNull("time")->get()->toArray());
+    }
+
     public function userLogin(Request $request) {
     	$user = $this->checkIsUserExisted($request);
     	if($user instanceof JsonResponse) return $user;
@@ -63,6 +67,14 @@ class UserController extends Controller
             ]);
         }
 
+        if($user->time === null) {
+            $result = $this->calculateResult($questions, $responses);
+            $user->time = $result["time"];
+            $user->score = $result["score"];
+            $user->timestamps = false;
+            $user->save();
+        }
+
         // responsed, show result
         return response()->json([
             'valid' => true,
@@ -71,7 +83,7 @@ class UserController extends Controller
                 'state' => "responsed",
                 'questions' => $questionArray,
                 'responses' => $responseArray,
-                'result' => $this->calculateResult($questions, $responses)
+                'result' => array("time" => $user->time, "score" =>$user->score)
             )
         ]);
     }
@@ -109,7 +121,7 @@ class UserController extends Controller
             }
         }
 
-        return array("time" => $totalTime, "points" => $totalPoints);
+        return array("time" => $totalTime, "score" => $totalPoints);
     }
 
     private function checkIsUserExisted(Request $request) {

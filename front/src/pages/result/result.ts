@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { UserService } from '../../app/user.service';
 
@@ -19,7 +19,8 @@ export class ResultPage {
     loading : any;
     result : any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private userService : UserService) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, 
+                 public loadingCtrl : LoadingController, private userService : UserService) {
         this.result = this.userService.result;
     }
 

@@ -25,7 +25,7 @@
         </ion-list>
         
         <ion-item [hidden]="counter - 1 != i">
-            <button ion-button item-right color="primary" type="submit" (click)="postResponse()">Next</button>
+            <button ion-button item-right color="primary" type="submit" (click)="postResponse()" [disabled]="!card.response.answerId">Next</button>
         </ion-item>
     </ion-card>
     
