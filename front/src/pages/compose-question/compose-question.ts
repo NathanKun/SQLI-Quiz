@@ -132,14 +132,14 @@ export class ComposeQuestionPage {
                                         console.log("getUserState failed")
                                         this.showAlert(res2);
                                     }
+                                    this.loading.dismiss();
                                 });
                             } else {
                                 console.log("composeQuestions failed");
+                                this.loading.dismiss();
                                 this.showAlert(res);
                             }
-                        });
-                        this.loading.dismiss();
-                        
+                        });                        
                     }
                 }
             ]

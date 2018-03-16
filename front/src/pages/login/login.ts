@@ -97,12 +97,13 @@ export class LoginPage {
                             console.log("getUserState failed")
                             this.showAlert(res2);
                         }
+                        this.loading.dismiss();
                     });
                 } else {
                     console.log("userlogin failed");
                     this.showAlert(res);
+                    this.loading.dismiss();
                 }
-                this.loading.dismiss();
             });
             
         }
