@@ -18,8 +18,12 @@
         <h2 ion-text>Score   : {{ result.score }}</h2>
         <h2 ion-text>Time: {{ result.time }} s</h2>
         
-        <div style="text-align: center; margin-left: 30px; margin-right: 30px;">
+        <div style="text-align: center; margin-left: 30px; margin-right: 30px; margin-top: 10px;">
             <button ion-button block color="primary" (click)="toLeaderboard()">Leaderboard</button>
+        </div>
+        
+        <div style="text-align: center; margin-left: 30px; margin-right: 30px;">
+            <button ion-button block color="primary" (click)="retry()">Try again</button>
         </div>
     </ion-card>
 </ion-content>

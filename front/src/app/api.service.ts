@@ -10,6 +10,7 @@ export class ApiService {
     checkIsComposedQuestions : string;
     composeQuestions : string;
     getQuestionsOfUser : string;
+    retry : string;
     
     postResponse : string; 
     
@@ -34,6 +35,7 @@ export class ApiService {
         this.checkIsComposedQuestions = this.baseUrl + "question/checkiscomposedquestions";
         this.composeQuestions = this.baseUrl + "question/composequestions";
         this.getQuestionsOfUser = this.baseUrl + "question/getquestionsofuser";
+        this.retry = this.baseUrl + "question/retry";
         
         this.postResponse = this.baseUrl + "response/postResponse";
         

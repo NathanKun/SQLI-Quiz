@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::post('/question/checkiscomposedquestions', 'QuestionController@checkIsComposedQuestions');
 Route::post('/question/composequestions', 'QuestionController@composeQuestions');
 Route::post('/question/getquestionsofuser', 'QuestionController@getQuestionsOfUser');
+Route::post('/question/retry', 'QuestionController@retry');
 
 Route::post('/response/postResponse', 'ResponseController@postResponse');
 

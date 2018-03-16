@@ -21,6 +21,7 @@ export class LoginPage {
     loginForm: FormGroup;
     loading;
     safeSvg;
+    loginBtnDisabled = true;
 
     constructor(public navCtrl: NavController, private userService: UserService, private loaderService : LoaderService,
                  private alertCtrl: AlertController, public loadingCtrl: LoadingController) { }
@@ -31,6 +32,19 @@ export class LoginPage {
             Validators.required
           ])
         });
+    }
+    
+    itemSelected() {
+        // wait a little before enable button, because touching on first username will also touch on the button
+        setTimeout(() => {
+            this.loginBtnDisabled = false;
+        }, 500);
+    }
+    
+    itemsShown() {
+        setTimeout(() => {
+            this.loginBtnDisabled = true;
+        }, 100);
     }
 
     submit() {

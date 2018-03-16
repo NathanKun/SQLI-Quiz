@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
 import { UserService } from '../../app/user.service';
+import { QuestionService } from '../../app/question.service';
 import { ApiService } from '../../app/api.service';
+import { LoaderService } from '../../app/loader.service';
+
+import { ComposeQuestionPage } from '../compose-question/compose-question'
 
 /**
  * Generated class for the ResultPage page.
@@ -21,8 +25,9 @@ export class ResultPage {
     result : any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, 
-                 public loadingCtrl : LoadingController, private userService : UserService,
-                private apiService : ApiService) {
+                 public loadingCtrl : LoadingController, private alertCtrl : AlertController, 
+                 private userService : UserService, private apiService : ApiService, 
+                 private questionService : QuestionService, private loaderService : LoaderService) {
         this.result = this.userService.result;
     }
 
@@ -30,6 +35,44 @@ export class ResultPage {
     
     toLeaderboard() {
         window.open(this.apiService.leaderboard);
+    }
+    
+    retry() {
+        let alert = this.alertCtrl.create({
+            title: 'Confirmation',
+            message: "Vous voulez rejouer ? Votre resultat sera supprimé...",
+            buttons: [
+                {
+                    text: 'Non',
+                    role: 'cancel',
+                    handler: () => {
+                        
+                    }
+                },
+                {
+                    text: 'Oui',
+                    handler: () => {
+                        this.loading = this.loaderService.getLoader(this.loadingCtrl);
+                        this.loading.present();
+                        this.questionService.retry(this.userService.currentUserId).subscribe((res) => {
+                            console.log(res);
+                            if(res.valid) {
+                                console.log("retry ok");
+                                this.navCtrl.push(ComposeQuestionPage);
+                            } else {
+                                console.log("retry failed");
+                            }
+                            this.loading.dismiss();
+                        });
+                    }
+                }
+            ]
+        });
+        alert.present();
+        
+        
+        
+        
     }
 
 }

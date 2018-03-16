@@ -15,6 +15,22 @@ export class QuestionService {
         
     }
     
+    retry(userId : number) : Observable<any> {
+        return this.http.post(
+            this.api.retry, 
+            {
+                userId : userId
+            })
+            .map(
+                result => {
+                    return result.json();
+                }
+            )
+            .catch(
+                (error : any) => {return this.errorHandler(error)}
+            );
+    }
+    
     composeQuestions(composition : IComposition) : Observable<any> {
         return this.http.post(
             this.api.composeQuestions, 

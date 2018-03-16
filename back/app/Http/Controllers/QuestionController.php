@@ -13,6 +13,22 @@ use App\Response as Res;
 class QuestionController extends Controller
 {
 
+    public function retry(Request $request) {
+        $user = $this->findUser($request);
+        if($user instanceof JsonResponse) return $user;
+
+        $user->questions()->detach();
+        $user->responses()->delete();
+        $user->timestamps = false;
+        $user->time = null;
+        $user->score = null;
+        $user->save();
+
+        return response()->json([
+            'valid' => true
+        ]);
+    }
+
 	public function getQuestionsOfUser(Request $request) {
     	$user = $this->findUser($request);
     	if($user instanceof JsonResponse) return $user;
