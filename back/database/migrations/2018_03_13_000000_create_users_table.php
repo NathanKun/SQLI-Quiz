@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('time')->unsigned()->nullable();
-            $table->integer('score')->unsigned()->nullable();
+            $table->integer('score')->nullable();
         });
     }
 
