@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { UserService } from '../../app/user.service';
+import { ApiService } from '../../app/api.service';
 
 /**
  * Generated class for the ResultPage page.
@@ -20,11 +21,15 @@ export class ResultPage {
     result : any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, 
-                 public loadingCtrl : LoadingController, private userService : UserService) {
+                 public loadingCtrl : LoadingController, private userService : UserService,
+                private apiService : ApiService) {
         this.result = this.userService.result;
     }
 
-    ionViewDidLoad() {
+    ionViewDidLoad() { }
+    
+    toLeaderboard() {
+        window.open(this.apiService.leaderboard);
     }
 
 }

@@ -17,6 +17,8 @@ export class ApiService {
     getUserState : string;
     userLogin : string;
     
+    leaderboard : string;
+    
     constructor() {
         this.updateUrls();
     }
@@ -38,5 +40,7 @@ export class ApiService {
         this.filterUser = this.baseUrl + "user/filterusername";
         this.getUserState = this.baseUrl + "user/getuserstate";
         this.userLogin = this.baseUrl + "user/userlogin";
+        
+        this.leaderboard = this.local ? "http://localhost:8100/assets/leaderboard/" : "https://sqli.catprogrammer.com/assets/leaderboard/";
     }
 }
