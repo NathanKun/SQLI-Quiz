@@ -9,6 +9,11 @@ use App\User;
 
 class UserController extends Controller
 {
+
+    public function getUserList(Request $request) {
+        return User::get(['name'])->toArray();
+    }
+
     public function getRanks(Request $request) {
         return response()->json(User::whereNotNull("time")->get()->toArray());
     }

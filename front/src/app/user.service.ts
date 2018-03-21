@@ -13,25 +13,38 @@ export class UserService implements AutoCompleteService {
 
     labelAttribute = "";
     
+    userList : any;
+    
     currentUser : string = null;
     currentUserId : number = null;
     questions : IQuestion[];
     responses : IResponse[];
-    result : any;
+    result : any = [];
 
     constructor(private http : Http, private api : ApiService) {
-
+        this.getUserList().subscribe((r) => {
+            this.userList = r;
+        });
     }
     
     getResults(keyword : string) : Observable<any> {
-        return this.http.get(this.api.filterUser, {params: {str : keyword}})
+        return this.userList
+            .filter(
+                u => u.toLowerCase().indexOf(keyword.toLowerCase()) >= 0
+            );
+    }
+    
+    getUserList() : Observable<any> {
+        return this.http.get(this.api.userList)
             .map(
                 result => {
-                    return result.json();
-                })
+                    return result.json()
+                        .map(r => r.name);
+                }
+            )
             .catch(
                 (error : any) => {return this.errorHandler(error)}
-        );
+            );
     }
     
     getUserState(userId : number) : Observable<any> {
