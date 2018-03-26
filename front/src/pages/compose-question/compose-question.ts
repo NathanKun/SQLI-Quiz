@@ -28,9 +28,9 @@ export class ComposeQuestionPage {
 
     startBtnEnabled:boolean=false;
     
-    technique : number = 1;
-    pilotage : number = 1;
-    fonctionnel : number = 1;
+    technique : number = 0;
+    pilotage : number = 0;
+    fonctionnel : number = 0;
     extra : number = 0;
     total : number = 3;
     

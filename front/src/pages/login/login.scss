@@ -1,15 +1,24 @@
 page-login {
+    
+    // vertical center content
     .vertical-align-content > *
     {
-         display: flex!important;
-         align-content: center!important;
-         align-items: center!important;
+        display: flex!important;
+        align-content: center!important;
+        align-items: center!important;
+    }
+    
+    // horizontal center content, for landscape
+    .login-grid {
+        max-width: 400px;
+        margin: 0 auto;
     }
 
     .login-button {
         margin-bottom: 5em;
     }
     
+    // fix ion-autp-complete too long issue for low resolution phones
     ion-auto-complete {
         width: 100%;
     }
