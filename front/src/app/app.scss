@@ -17,6 +17,7 @@
 
 @import "../../node_modules/ionic2-auto-complete/auto-complete";
 
+// declare SQLI font face
 @font-face {
     font-family: DINNextLTPro;
     src: url('../assets/fonts/DINNextLTPro-MediumCond.ttf') format('truetype');
@@ -24,19 +25,22 @@
     font-style: normal;
 }
 
+// force entire app use SQLI font
 * {
     font-family: DINNextLTPro !important;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-toolbar-title {
+/*toolbar-title {
     font-size: 1.5em;
-}
+}*/
 
+// use icon tpye face for icon elements
 ion-icon {
     font-family: "Ionicons" !important;
 }
 
+// loader spinning animation
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% {  transform: rotate(359deg); }
@@ -46,6 +50,13 @@ ion-icon {
     animation: spin 1s linear infinite;
 }
 
+// fix issue that win phone loader use black background color and white font so svg not showing correctly
+.loading-wrapper{
+    background-color:white !important;
+    color: black !important;
+}
+
+// global background image
 ion-content {
     background-image: url('../assets/imgs/bg1_0.5.png');
 }

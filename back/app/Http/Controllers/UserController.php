@@ -112,20 +112,20 @@ class UserController extends Controller
                     if(in_array($a->id, $answersIdChosen)) {
                         if($questionCount > 5) {
                             $totalPoints += 2;
-                            error_log("extra +2");
+                            //error_log("extra +2");
                         } else {
                             $totalPoints += 1;
-                            error_log("normal +1");
+                            //error_log("normal +1");
                         }
                     }
                 } else {
                     if(in_array($a->id, $answersIdChosen)) {
                         if($questionCount > 5) {
                             $totalPoints -= 1;
-                            error_log("extra -1");
+                            //error_log("extra -1");
                         } else {
                             // nothing
-                            error_log("normal 0");
+                            //error_log("normal 0");
                         }
                     }
                 }

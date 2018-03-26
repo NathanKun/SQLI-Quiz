@@ -3,16 +3,27 @@ page-compose-question {
         margin-top: 0;
     }
     
+    // hide help button background
     .help-button {
         background: transparent;
     }
     
+    /*ion-label {
+        font-size: 1.3em;
+    }*/
+    
+    // fix long title hiding issue
     .list-header {
         font-size: 1.2em;
         margin-bottom: -15px;
     }
+    // decrease left right padding for ios, prevent long title has too many row
+    .title-ios {
+        padding: 0 70px 1px;
+    }
     
-    ion-label {
-        font-size: 1.3em;
+    // fix android range knob not round issue
+    .range-knob-handle {
+        text-align: unset !important;
     }
 }

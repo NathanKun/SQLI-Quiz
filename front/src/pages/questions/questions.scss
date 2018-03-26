@@ -1,3 +1,15 @@
 page-questions {
-
+    ion-card-header,
+    ion-label {
+        white-space: normal;
+    }
+    
+    .toolbar-title {
+        text-overflow: unset;
+        white-space: unset;
+    }
+    
+    .title-ios {
+        padding: 0 70px 1px;
+    }
 }

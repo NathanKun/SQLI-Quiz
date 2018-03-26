@@ -113,7 +113,7 @@ export class QuestionsPage {
                                             response : {userId : this.userService.currentUserId, answerId : null, time : null } 
                                            };
             this.title = "Question " + this.counter + "/" + this.questions.length + " : Question " + 
-                (this.counter <= 7 ? this.cards[this.counter - 1].question.type : "supplémantaire");
+                (this.counter <= 5 ? this.cards[this.counter - 1].question.type : "supplémantaire");
 
             setTimeout(() => {
                 this.content.scrollToBottom(500);
