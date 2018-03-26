@@ -17,26 +17,26 @@
             Questions obigatoires
         </ion-list-header>
         <ion-item>
-            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 7 ? 'secondary' : 'danger'" 
+            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 5 ? 'secondary' : 'danger'" 
                        [(ngModel)]="technique" (ionChange)="rangeOnChange()">
                 <ion-label range-left>Technique&ensp;</ion-label>
             </ion-range>
         </ion-item>
         <ion-item>
-            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 7 ? 'secondary' : 'danger'" 
+            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 5 ? 'secondary' : 'danger'" 
                        [(ngModel)]="pilotage" (ionChange)="rangeOnChange()">
                 <ion-label range-left>Pilotage&ensp;&ensp;</ion-label>
             </ion-range>
         </ion-item>
         <ion-item>
-            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 7 ? 'secondary' : 'danger'" 
+            <ion-range min="0" max="3" step="1" pin="true" snaps="true" [color]="total == 5 ? 'secondary' : 'danger'" 
                        [(ngModel)]="fonctionnel" (ionChange)="rangeOnChange()">
                 <ion-label range-left>Fonctionnel</ion-label>
             </ion-range>
         </ion-item>
         <ion-item>
             <ion-label item-start>Total :</ion-label>
-            <ion-badge [color]="total == 7 ? 'secondary' : 'danger'" item-end>{{ total }}</ion-badge>
+            <ion-badge [color]="total == 5 ? 'secondary' : 'danger'" item-end>{{ total }}</ion-badge>
         </ion-item>
     </ion-list>
         

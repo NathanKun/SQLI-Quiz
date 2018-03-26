@@ -41,7 +41,7 @@ export class ComposeQuestionPage {
     rangeOnChange() {
         this.total = this.technique + this.fonctionnel + this.pilotage;
         
-        if (this.total !== 7) {
+        if (this.total !== 5) {
             this.startBtnEnabled = false;
         } else {
             this.startBtnEnabled = true;

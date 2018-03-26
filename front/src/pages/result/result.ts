@@ -40,7 +40,7 @@ export class ResultPage {
     retry() {
         let alert = this.alertCtrl.create({
             title: 'Confirmation',
-            message: "Vous voulez rejouer ? Votre resultat sera supprimé...",
+            message: "Vous voulez rejouer ? Seul le dernier score est retenu...",
             buttons: [
                 {
                     text: 'Non',
@@ -61,6 +61,7 @@ export class ResultPage {
                                 this.navCtrl.push(ComposeQuestionPage);
                             } else {
                                 console.log("retry failed");
+                                this.showAlert(res);
                             }
                             this.loading.dismiss();
                         });
@@ -68,11 +69,16 @@ export class ResultPage {
                 }
             ]
         });
+        alert.present();        
+    }
+    
+    private showAlert(msg) : void {
+        let alert = this.alertCtrl.create({
+            title: 'Something wrong...',
+            subTitle: typeof msg === "string" ? msg : (msg.hasOwnProperty('error') ? msg.error : JSON.stringify(msg)),
+            buttons: ['OK']
+        });
         alert.present();
-        
-        
-        
-        
     }
 
 }

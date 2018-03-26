@@ -13,7 +13,7 @@ export class UserService implements AutoCompleteService {
 
     labelAttribute = "";
     
-    userList : any;
+    userList : any = [];
     
     currentUser : string = null;
     currentUserId : number = null;

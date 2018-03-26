@@ -13,13 +13,13 @@
 
 <ion-content padding [@listAnimation]="cards.length" >
     <ion-card *ngFor="let card of cards; let i = index">
-        <ion-card-header>
+        <ion-card-header style="white-space: normal;">
             {{ card.question.text }}
         </ion-card-header>
         
         <ion-list *ngFor="let answer of card.question.answers; let j = index" radio-group [(ngModel)]="card.response.answerId">
             <ion-item>
-                <ion-label>{{ j + 1 + ". " }}{{ answer.answer }}</ion-label>
+                <ion-label style="white-space: normal;">{{ j + 1 + ". " }}{{ answer.answer }}</ion-label>
                 <ion-radio [value]="answer.id" [disabled]="counter - 1 != i" ngDefaultControl></ion-radio>
             </ion-item>
         </ion-list>
