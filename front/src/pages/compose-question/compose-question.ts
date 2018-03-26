@@ -53,9 +53,9 @@ export class ComposeQuestionPage {
     }
     
     gameStart() {
-        const tech:string = this.technique === 1 ? " question technique</p>" : " questions techniques</p>"
-        const pilo:string = this.pilotage === 1 ? " question pilotage</p>" : " questions pilotages</p>"
-        const fonc:string = this.fonctionnel === 1 ? " question fonctionnel</p>" : " questions fonctionnels</p>"
+        const tech:string = this.technique <= 1 ? " question technique</p>" : " questions techniques</p>"
+        const pilo:string = this.pilotage <= 1 ? " question pilotage</p>" : " questions pilotages</p>"
+        const fonc:string = this.fonctionnel <= 1 ? " question fonctionnel</p>" : " questions fonctionnels</p>"
         const extra:string = this.extra <= 1 ? " question supplémentaire</p>" : " questions supplémentaires</p>"
         
         const msg:string = 

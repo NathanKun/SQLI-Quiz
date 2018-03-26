@@ -34,7 +34,6 @@ export class HelpPage {
         "Rien de plus simple ! ", 
         "Devenez le meilleur du classement en répondant juste et le plus rapidement possible à 5 questions minimum.",
         "Vous devez composer vos questions parmi les trois rubriques proposées (fonctionnel, pilotage et technique).",
-        "Vous devez composer vos questions parmi les trois rubriques proposées (fonctionnel, pilotage et technique).",
         "Et si vous êtes joueur... vous pouvez sélectionner 1 à 3 questions bonus !",
         "Si vous répondez bien, vous marquerez plus de points mais si vous échouez, vous en perdrez !",
         "Vous n'êtes pas satisfait de votre classement ? Retentez votre chance !",
