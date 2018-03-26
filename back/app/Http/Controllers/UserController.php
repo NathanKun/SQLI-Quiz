@@ -72,13 +72,13 @@ class UserController extends Controller
             ]);
         }
 
-        if($user->time === null) {
-            $result = $this->calculateResult($questions, $responses);
-            $user->time = $result["time"];
-            $user->score = $result["score"];
-            $user->timestamps = false;
-            $user->save();
-        }
+        //if($user->time === null) {
+        $result = $this->calculateResult($questions, $responses);
+        $user->time = $result["time"];
+        $user->score = $result["score"];
+        $user->timestamps = false;
+        $user->save();
+        //}
 
         // responsed, show result
         return response()->json([
@@ -103,23 +103,29 @@ class UserController extends Controller
             array_push($answersIdChosen, $r->answer()->first()->id);
         }
 
+        $questionCount = 0;
         foreach ($questions as $q) {
+            $questionCount++;
             $answersOfQuestion = $q->answers()->get();
             foreach ($answersOfQuestion as $a) {
                 if ($a->isCorrect) {
                     if(in_array($a->id, $answersIdChosen)) {
-                        if($q->type == 'extra') {
+                        if($questionCount > 5) {
                             $totalPoints += 2;
+                            error_log("extra +2");
                         } else {
                             $totalPoints += 1;
+                            error_log("normal +1");
                         }
                     }
                 } else {
                     if(in_array($a->id, $answersIdChosen)) {
-                        if($q->type == 'extra') {
+                        if($questionCount > 5) {
                             $totalPoints -= 1;
+                            error_log("extra -1");
                         } else {
                             // nothing
+                            error_log("normal 0");
                         }
                     }
                 }

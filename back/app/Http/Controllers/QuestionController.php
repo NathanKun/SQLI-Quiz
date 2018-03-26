@@ -20,8 +20,6 @@ class QuestionController extends Controller
         $user->questions()->detach();
         $user->responses()->delete();
         $user->timestamps = false;
-        $user->time = null;
-        $user->score = null;
         $user->save();
 
         return response()->json([
