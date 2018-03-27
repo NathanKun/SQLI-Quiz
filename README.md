@@ -10,4 +10,5 @@ DB: MySQL
 ## Addresses
 <a href="https://sqli.catprogrammer.com">Front</a>  
 <a href="https://sqli.catprogrammer.com/assets/leaderboard">Front Leaderboard</a>  
+<a href="https://sqli.catprogrammer.com/assets/adduser">Front Add User</a>  
 <a href="https://sqliapi.catprogrammer.com">Back</a>  
