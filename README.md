@@ -7,7 +7,7 @@ Front: Ionic3 + Angular4
 Back: Laravel5.6  
 DB: MySQL  
 
-## Addresses
+## URLs
 <a href="https://sqli.catprogrammer.com">Front</a>  
 <a href="https://sqli.catprogrammer.com/assets/leaderboard">Front Leaderboard</a>  
 <a href="https://sqli.catprogrammer.com/assets/adduser">Front Add User</a>  
