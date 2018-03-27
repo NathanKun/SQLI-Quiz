@@ -27,3 +27,4 @@ Route::get('/user/filterusername', 'UserController@filterUserName');
 Route::post('/user/getuserstate', 'UserController@getUserState');
 Route::get('/user/getranks', 'UserController@getRanks');
 Route::get('/user/getuserlist', 'UserController@getUserList');
+Route::post('/user/adduser', 'UserController@addUser');

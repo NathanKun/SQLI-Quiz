@@ -9,6 +9,33 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function addUser(Request $request) {
+        $name = $request->name;
+
+        if($name === null) {
+            return response()->json([
+                'valid' => false,
+                'error' => "param name is missing"
+            ]);
+        }
+
+        $usersSameName = User::where("name", $name)->get()->count();
+        if($usersSameName > 0) {
+            return response()->json([
+                'valid' => false,
+                'error' => "This name has already been added"
+            ]);
+        } 
+        
+        $user = new User;
+        $user->timestamps = false;
+        $user->name = $name;
+        $user->save();
+
+        return response()->json([
+            'valid' => true
+        ]);
+    }
 
     public function getUserList(Request $request) {
         return User::get(['name'])->toArray();
