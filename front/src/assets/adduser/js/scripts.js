@@ -1,4 +1,4 @@
-const local = true;
+const local = false;
 const url = local ? "http://localhost:8000/user/adduser" : "https://sqliapi.catprogrammer.com/user/adduser";
 
 function addUser() {
