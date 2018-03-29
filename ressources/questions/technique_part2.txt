@@ -1,0 +1,29 @@
+Sans titre 
+1 - Comment s'appelle le framework java sur lequel s'appuie la plateforme Hybris et qui se nomme comme une des 4 saisons ?
+winter / (spring) / summer / autumn
+
+2 - Que signifie JSP
+Java System Pages / Je Sais Pas / (Java Server Pages) / Java SAP Pages
+
+3 - Quelle est le format du nom du fichier dans lequel est décrit le model d'une extention ?
+(<extension>-items.xml) / <extension>-model.xml / data-<extension>.xml / data-model.json
+
+4 - Dnas Hybris, il existe la notion de "hot-foler" afin d'importer des fichiers plats. Comment se nomme le framework à la base des hot-folders ?
+(Spring integration) / SAP Hot Integration / DataHub / Spring Data Flow
+
+5 - En java, toutes les classes héritent d'une classe. Laquelle ?
+(Object) / Java / Class / Error
+
+6 - Pour qu'un attribut soit instancié avec un bean on doit utiliser l'annotation ?
+@Autowired / @Value / @Controller / (@Ressource)
+   
+7 - Le scope par défaut d'un bean Spring ?
+Session / (Singleton) / Prototype / Spring
+
+8 - Pour empêcher une classe d'être étendue, on utilise la clause :
+Static / Volatile / (Final) / Abstract
+ 
+9 - Dans une FlexibleSearch, comment indiquer qu'on ne souhaite chercher que le type écrit et pas les instances des types hérités ?
+(SELECT {code}, {pk} FROM {Product!}) / SELECT {code}, {pk} FROM {!Product} / SELECT DISTINCT {code}, {pk} FROM {Product} / SELECT {code}, {pk} FROM {Product**} 
+ 
+
